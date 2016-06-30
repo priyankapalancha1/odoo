@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<openerp>
+		<data>
+
+
+
+
+<!--  here starts teacher part-->
+		<!-- teacher tree view -->
+			<record model="ir.ui.view" id="teacher_tree_view">
+				<field name="name">teacher.tree</field>
+				<field name="model">teacher</field>
+				<field name="type">tree</field>
+				<field name="arch" type="xml">
+					<tree string="teacher">
+							<field name="name"/>
+							<field name="age"/>
+							<field name="address"/>
+							<field name="phone"/>
+							<field name="free"/>
+							<field name="fee"/>
+							<field name="teacher_id"/>
+							<field name="teach_id"/>
+					</tree>
+				</field>
+			</record>
+	<!-- teacher form view -->
+			<record model="ir.ui.view" id="teacher_form_view">
+				<field name="name">teacher.form</field>
+				<field name="model">teacher</field>
+				<field name="type">form</field>
+				<field name="arch" type="xml">
+					<form string="teacher">
+							<field name="name"/>
+							<field name="age"/>
+							<field name="address"/>
+							<field name="phone"/>
+							<field name="free"/>
+							<field name="fee"/>
+							<field name="teacher_id"/>
+							<field name="teach_id"/>
+					</form>
+				</field>
+			</record>
+
+	<!-- action teacher form view -->
+			<record model="ir.actions.act_window" id="action_teacher_form">
+				<field name="name">teacher details</field>
+				<field name="res_model">teacher</field>
+			</record>
+
+	<!-- teacher search view -->
+			<record id="teacher_search_view" model="ir.ui.view">
+				<field name="name">teacher.search.view</field>
+				<field name="model">teacher</field>
+				<field name="type">search</field>
+				<field name="arch" type="xml">
+					<search string="teacher">
+						<field name="name"/>
+						<field name="age"/>
+						<field name="address"/>
+						<field name="phone"/>
+						<field name="free"/>
+						<field name="fee"/>	
+						<field name="teacher_id"/>
+						<field name="teach_id"/>
+						<group expand="5" string="Group By">
+							<filter name="name" string="school" domain="[]" context="{'group_by':'name'}"/>
+							<filter name="age" string="school" domain="[]" context="{'group_by':'age'}"/>
+							<filter name="address" string="school" domain="[]" context="{'group_by':'address'}"/>
+							<filter name="teacher_id" string="school" domain="[]" context="{'group_by':'teacher_id'}"/>
+							<filter name="teach_id" string="school" domain="[]" context="{'group_by':'teach_id'}"/>
+						</group>
+				  	</search> 
+				</field>
+			</record>
+			
+	<!-- action teacher search view -->
+			<record model="ir.actions.act_window" id="action_teacher_search">
+				<field name="name">teacher details</field>
+				<field name="res_model">teacher</field>
+			</record>
+
+	<!-- ends teacher part -->
+			<!-- menu item starts here -->
+
+			<menuitem name="Teacher " id="teacher_menu" parent="school_menu"/>
+
+            <menuitem name="Teachers" parent="teacher_menu" id="teacher_menu_mainform" action="action_teacher_form"/>
+
+            <menuitem name="Teachers" parent="teacher_menu" id="teacher_menu_mainform" action="action_teacher_search"/>
+
+        </data>
+    </openerp>

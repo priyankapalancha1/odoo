@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<openerp>
+		<data>
+
+<!--  here starts school part-->
+	<!-- school tree view -->
+			<record model="ir.ui.view" id="school_tree_view">
+				<field name="name">school.tree</field>
+				<field name="model">school.school</field>
+				<field name="type">tree</field>
+				<field name="arch" type="xml">
+					<tree string="School">
+						<field name="studentid"/>
+						<field name="firstname"/>
+						<field name="passpercentage"/>
+						<field name="result"/>
+						<field name="medium"/>
+						<field name="landmark"/>
+						<field name="timeofbirth"/>
+						<field name="state"/>
+						<field name="admissiondate"/>
+						<field name="address"/>
+					</tree>
+				</field>
+			</record>
+
+	<!-- school form view -->
+			<record model="ir.ui.view" id="school_form_view">
+				<field name="name">school.form</field>
+				<field name="model">school.school</field>
+				<field name="type">form</field>
+				<field name="arch" type="xml">
+					<form string="School">
+						<group string="school management">
+							<field name="studentid"/>
+							<field name="firstname"/>
+							<field name="passpercentage"/>
+							<field name="result"/>
+							<field name="medium"/>
+							<field name="landmark"/>
+							<field name="timeofbirth"/>
+							<field name="state"/>
+							<field name="admissiondate"/>
+							<field name="address"/>
+						</group>
+					</form>
+				</field>
+			</record>
+
+	<!-- action school form view -->
+			<record model="ir.actions.act_window" id="action_school_form">
+				<field name="name">school management</field>
+				<field name="res_model">school.school</field>
+			</record>
+
+	<!-- school search view -->
+			<record id="school_search_view" model="ir.ui.view">
+				<field name="name">school.search.view</field>
+				<field name="model">school.school</field>
+				<field name="type">search</field>
+				<field name="arch" type="xml">
+					<search string="School">
+						<field name="studentid"/>
+						<field name="firstname"/>
+						<field name="passpercentage"/>
+						<field name="result"/>	
+						<field name="medium"/>
+						<field name="landmark"/>
+						<field name="timeofbirth"/>
+						<field name="state"/>	
+						<field name="admissiondate"/>
+						<field name="address"/>	
+						<group expand="5" string="Group By">
+							<filter name="studentid" string="school" domain="[]" context="{'group_by':'studentid'}"/>
+							<filter name="firstname" string="school" domain="[]" context="{'group_by':'firstname'}"/>
+							<filter name="medium" string="school" domain="[]" context="{'group_by':'medium'}"/>
+							<filter name="state" string="school" domain="[]" context="{'group_by':'state'}"/>
+							<filter name="address" string="school" domain="[]" context="{'group_by':'address'}"/>
+						</group>
+				  	</search> 
+				</field>
+			</record>
+			
+	<!-- action school search view-->
+			<record model="ir.actions.act_window" id="action_school_search">
+				<field name="name">school management</field>
+				<field name="res_model">school.school</field>
+			</record>
+
+	<!-- ends school part -->
+
+	
+
+	
+			
+		<!-- here starts menu items for schools -->
+			<menuitem name="School" id="school_menu"/>
+
+			<menuitem name="School Management " id="school_management_menu" parent="school_menu"/>
+
+			<menuitem name="Schools" parent="school_management_menu" id="school_menu_mainform" action="action_school_form"/>
+
+			<menuitem name="Schools" parent="school_management_menu" id="school_menu_mainform" action="action_school_search"/>
+
+			
+            
+         </data>
+	</openerp>
+
